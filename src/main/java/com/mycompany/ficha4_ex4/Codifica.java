@@ -12,7 +12,7 @@ package com.mycompany.ficha4_ex4;
 public class Codifica {
 
     //depois meter private
-    public CircularArrayQueue<String> save;
+    public CircularArrayQueue<Character> save;
     public CircularArrayQueue<Integer> key;
 
     public Codifica(String key) {
@@ -45,15 +45,33 @@ public class Codifica {
                 char c;
                 c = (char) ch;
 
-                String add = "" + c;
-                this.save.enqueue(add);
+                this.save.enqueue(c);
 
             }
             return true;
 
         }
     }
-    
-    
-    
+
+    public String descodifica(String key) throws EmptyCollectionException {
+        passarKey(key);
+
+        char[] resultado = new char[key.length()];
+        
+
+        for (int i = 0; i < key.length(); i++) {
+            char c = this.save.dequeue();
+            int ch = (int) c;
+
+            int k = this.key.dequeue();
+
+            ch = ch - k;
+
+            resultado[i] = (char) ch;
+        }
+
+        String string = new String(resultado);
+        return string;
+    }
+
 }

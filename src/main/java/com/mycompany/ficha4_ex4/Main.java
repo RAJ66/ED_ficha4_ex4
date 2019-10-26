@@ -20,6 +20,8 @@ public class Main {
         System.out.println(teste.key.toString());
         teste.codificar("power");
         System.out.println(teste.save.toString());
+        
+        System.out.println(teste.descodifica("53174"));
     }
     
 }
