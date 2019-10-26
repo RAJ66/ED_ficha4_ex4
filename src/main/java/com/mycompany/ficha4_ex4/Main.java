@@ -14,10 +14,12 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws EmptyCollectionException {
         // TODO code application logic here
-        Codifica teste = new Codifica("3333", "power");
+        Codifica teste = new Codifica("53174");
         System.out.println(teste.key.toString());
+        teste.codificar("power");
+        System.out.println(teste.save.toString());
     }
     
 }
