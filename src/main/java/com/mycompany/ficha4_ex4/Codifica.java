@@ -37,7 +37,8 @@ public class Codifica {
 
             for (int i = 0; i < texto.length(); i++) {
                 int k = key.dequeue();
-
+                key.enqueue(k);
+                
                 //passagem
                 int ch = (int) textoArray[i];
                 ch = ch + k;
@@ -54,20 +55,27 @@ public class Codifica {
     }
 
     public String descodifica(String key) throws EmptyCollectionException {
+        while (!this.key.isEmpty()) {            
+            this.key.dequeue();
+        }
         passarKey(key);
 
-        char[] resultado = new char[key.length()];
+        char[] resultado = new char[this.save.size()];
         
 
-        for (int i = 0; i < key.length(); i++) {
-            char c = this.save.dequeue();
+       
+        
+        int tmp =0;
+        while (!this.save.isEmpty()) {            
+           char c = this.save.dequeue();
             int ch = (int) c;
 
             int k = this.key.dequeue();
-
+            this.key.enqueue(k);
             ch = ch - k;
 
-            resultado[i] = (char) ch;
+            resultado[tmp] = (char) ch;
+            tmp++;
         }
 
         String string = new String(resultado);

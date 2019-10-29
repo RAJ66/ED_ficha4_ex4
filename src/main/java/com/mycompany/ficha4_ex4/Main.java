@@ -16,12 +16,27 @@ public class Main {
      */
     public static void main(String[] args) throws EmptyCollectionException {
         // TODO code application logic here
-        Codifica teste = new Codifica("53174");
-        System.out.println(teste.key.toString());
-        teste.codificar("power");
-        System.out.println(teste.save.toString());
+        int escolha = 0;
         
-        System.out.println(teste.descodifica("53174"));
+        switch (escolha) {
+            case 0:
+                Codifica teste = new Codifica("317425");
+                teste.codificar("knowledge is power");
+
+                System.out.println(teste.save.toString());
+                System.out.println(teste.key.toString());
+
+                System.out.println(teste.descodifica("317425"));
+                break;
+            case 1:
+                Codifica teste2 = new Codifica("345");
+                teste2.codificar("power");
+
+                System.out.println(teste2.save.toString());
+                System.out.println(teste2.key.toString());
+
+                System.out.println(teste2.descodifica("345"));
+                break;
+        }
     }
-    
 }
